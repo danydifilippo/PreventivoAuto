@@ -1,6 +1,23 @@
 ﻿body {
+    background-image: url('img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input {
     margin: 1em;
+}
+
+#Calcola {
+    margin-left: 3em;
+}
+
+.container {
+    margin: 2em;
+    padding: 1em;
+    background-color:azure;
+}
+
+#Configurazione {
+    margin:auto;
 }

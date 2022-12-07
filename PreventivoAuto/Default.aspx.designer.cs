@@ -78,6 +78,15 @@ namespace PreventivoAuto
         protected global::System.Web.UI.WebControls.DropDownList ddlGaranzia;
 
         /// <summary>
+        /// Controllo Calcola.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Calcola;
+
+        /// <summary>
         /// Controllo Configurazione.
         /// </summary>
         /// <remarks>

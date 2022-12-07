@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Default.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,12 +43,12 @@
             <h3>Optional:</h3>
             <div class="row text-center">
                 <asp:CheckBoxList ID="cblOptional" CssClass="form-control" RepeatColumns="3" runat="server">
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
-                    <asp:ListItem Text="Vernice metallizzata (+ 250,00 €)" Value="250"></asp:ListItem>
+                    <asp:ListItem Text="Vernice metallizzata (+ 500,00 €)" Value="500"></asp:ListItem>
+                    <asp:ListItem Text="Cerchi in lega (+ 1.200,00 €)" Value="1200"></asp:ListItem>
+                    <asp:ListItem Text="Pack winter (+ 1.700,00 €)" Value="1700"></asp:ListItem>
+                    <asp:ListItem Text="Fari xeno (+ 200,00 €)" Value="200"></asp:ListItem>
+                    <asp:ListItem Text="Ruota di scorta (+ 160,00 €)" Value="160"></asp:ListItem>
+                    <asp:ListItem Text="Sedili in pelle (+ 650,00 €)" Value="650"></asp:ListItem>
                 </asp:CheckBoxList>
             </div>
         </div>
@@ -66,6 +67,9 @@
             </div>
             </div>
         </div>
+        <hr />
+             <asp:Button ID="Calcola" runat="server" Text="Calcola Preventivo" CssClass="btn btn-info" OnClick="Calcola_Click" />
+        
         <div id="Configurazione" class="alert alert-info" runat="server">
             <asp:Label ID="ListaConfig" runat="server" Text=""></asp:Label>
             <asp:Label ID="TotConfig" Font-Bold="true" ForeColor="CadetBlue" Font-Size="28px" runat="server" Text=""></asp:Label>
