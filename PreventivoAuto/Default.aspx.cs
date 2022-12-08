@@ -15,7 +15,6 @@ namespace PreventivoAuto
             Configurazione.Visible = false;
         }
 
-        Auto vettura = new Auto();
        
         protected void DropDownAuto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -53,17 +52,21 @@ namespace PreventivoAuto
                 PrezzoBase.Text = $"Prezzo di partenza: {Prezzo.ToString("c2")}";
             }
 
-            vettura.Modello = Prezzo;
-
-            AggiungiOptional();
-
         }
 
-        public void AggiungiOptional()
+
+  
+
+        protected void Calcola_Click(object sender, EventArgs e)
         {
+            Configurazione.Visible = true;
+
             string optional = "";
             decimal TotOptional = 0;
-
+            double TotOpt = 0;
+            double TotMod = 0;
+            double Garanzia = Convert.ToDouble(ddlGaranzia.SelectedItem.Value);
+            double TotGar = Garanzia * 120;
 
             foreach (ListItem opt in cblOptional.Items)
             {
@@ -73,35 +76,16 @@ namespace PreventivoAuto
                     TotOptional += Convert.ToInt32(opt.Value);
                 }
             }
-            
-           vettura.Optional = Convert.ToDouble(TotOptional);
 
+
+            TotOpt = Convert.ToDouble(TotOptional);
+            TotMod = Convert.ToDouble(DropDownAuto.SelectedItem.Value);
+            double TotCompl = TotMod + TotOpt + TotGar;
+
+            ListaConfig.Text = $"Totale Modello: {TotMod.ToString("c2")}<br />Totale Optional: {TotOpt.ToString("c2")}<br />Totale Garanzia: {TotGar.ToString("c2")}<br />";
+
+            TotConfig.Text = $"Totale Complessivo: {TotCompl.ToString("c2")}";
         }
 
-        protected void Calcola_Click(object sender, EventArgs e)
-        {
-            Configurazione.Visible = true;
-           
-            vettura.Garanzia = ddlGaranzia.SelectedItem.Text;
-
-
-            ListaConfig.Text = $"Totale Modello: {(vettura.Modello).ToString("c2")}<br />Totale Optional: {(vettura.Optional).ToString("c2")}<br />Totale Garanzia: {vettura.Garanzia}<br />";
-
-            TotConfig.Text = $"Totale Complessivo: {(vettura.CostoPreventivo()).ToString("c2")}";
-        }
-        public class Auto
-        {
-            private double _modello;
-            public double Modello { get { return _modello}; set { _modello = value; } }
-
-            private double _optional;
-            public double Optional { get { return _optional}; set { _optional = value; } }
-            public string Garanzia { get; set; }
-            
-            public double CostoPreventivo() {
-                return Modello + Optional;
-            }
-
-        }
     }
    }
